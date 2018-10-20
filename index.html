@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RePublic Latin Dictionary</title>
+</head>
+
+<body>
+<input class="form-control" placeholder="Search for a Latin or English word.." id="search">
+<table>
+  <tr><th>English Word</th><th>Latin Word</th></tr>
+  <tbody id="wordsInsert">
+  </tbody>
+</table>
+<button class="btn btn-primary" id="addTermDivButton">Add a term</button>
+<button class="btn btn-warning" id="seeAllTerms">See all Terms in Database</button>
+<div id="addTermDiv">
+  <h4>Insert a new term</h4>
+  <div class="col-md-2">
+    <p>English Term</p>
+    <input id="englishTermInput"/>
+  </div>
+  <div class="col-md-2">
+    <p>Latin Term</p>
+    <input id="latinTermInput">
+  </div>
+  <div class="col-md-2">
+    <button id="addTerm" class="btn btn-primary">Add term to database</button>
+  </div>
+</div>
+  
+</div>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+</html>
+
