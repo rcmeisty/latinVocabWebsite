@@ -43,9 +43,9 @@ $("#search").keyup(function(){
     refWordL = allTerms[i].latinWord;
     refWordL = refWordL.substr(0,searchTextLength);
     if(refWordE==searchText){
-      addToPrint = addToPrint + "<tr><td>"+allTerms[i].englishWord+"</td><td>"+allTerms[i].latinWord+"</td></tr>";
+      addToPrint = addToPrint + "<tr><td>"+allTerms[i].englishWord+"</td><td>"+allTerms[i].latinWord+"<tr><td>"+allTerms[i].stageNumber+"</td><td>"+"</td></tr>";
     }else if(refWordL==searchText){
-      addToPrint = addToPrint + "<tr><td>"+allTerms[i].englishWord+"</td><td>"+allTerms[i].latinWord+"</td></tr>";
+      addToPrint = addToPrint + "<tr><td>"+allTerms[i].englishWord+"</td><td>"+allTerms[i].latinWord+"<tr><td>"+allTerms[i].stageNumber+"</td><td>"+"</td></tr>";
     } else if(searchText==""){
       $("#wordsInsert").html("<tr></tr>");
       break;
@@ -61,7 +61,7 @@ $("#seeAllTerms").click(function(){
   $("#wordsInsert").html(allTermsToPrint);
   var t;
   for(t=0;t<allTerms.length;t++){
-    allTermsToPrint = allTermsToPrint + "<tr><td>" + allTerms[t].englishWord + "</td><td>" + allTerms[t].latinWord + "</td></tr>";
+    allTermsToPrint = allTermsToPrint + "<tr><td>" + allTerms[t].englishWord + "</td><td>" + allTerms[t].latinWord +"<tr><td>"+allTerms[i].stageNumber+"</td><td>"+ "</td></tr>";
   }
   $("#wordsInsert").html(allTermsToPrint);
   $("#seeAllTerms").html("Hide Terms in Database");
@@ -88,13 +88,16 @@ $("#addTermDivButton").click(function(){
 
 var latinTermInput;
 var englishTermInput;
+var stageNumberInput;
 
 $("#addTerm").click(function(){
   latinTermInput = $("#latinTermInput").val();
   englishTermInput = $("#englishTermInput").val();
+  stageNumberInput = $("#stageNumberInput").val();
   firebase.database().ref('/'+allTerms.length).set({
     englishWord: englishTermInput,
-    latinWord: latinTermInput
+    latinWord: latinTermInput,
+    stageNumber: stageNumberInput
   });
   $("#englishTermInput").val('');
   $("#latinTermInput").val('')
