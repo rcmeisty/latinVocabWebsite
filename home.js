@@ -13,7 +13,7 @@
 
 var dbReference = firebase.database().ref();
 dbReference.on("value", gotTerms);
-var clickTerms =3;
+var clickTerms=3;
 var allTerms;
 function gotTerms(results){
   allTerms = results.val();
@@ -61,7 +61,7 @@ $("#seeAllTerms").click(function(){
   $("#wordsInsert").html(allTermsToPrint);
   var t;
   for(t=0;t<allTerms.length;t++){
-    allTermsToPrint = allTermsToPrint + "<tr><td>" + allTerms[t].englishWord + "</td><td>" + allTerms[t].latinWord +"</td><td>"+allTerms[i].stageNumber+"</td></tr>";
+    allTermsToPrint = allTermsToPrint + "<tr><td>" + allTerms[t].englishWord + "</td><td>" + allTerms[t].latinWord +"</td><td>"+allTerms[t].stageNumber+"</td></tr>";
   }
   $("#wordsInsert").html(allTermsToPrint);
   $("#seeAllTerms").html("Hide Terms in Database");
